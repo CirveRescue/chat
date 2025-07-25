@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Twitch + TikTok</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: white; padding: 20px; }
+    .msg { margin-bottom: 10px; }
+    .Twitch { color: #9146FF; }
+    .TikTok { color: #EE1D52; }
+  </style>
+</head>
+<body>
+  <h1>Mensajes en vivo</h1>
+  <div id="chat"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const chat = document.getElementById('chat');
+
+    socket.on('chatMessage', (data) => {
+      const div = document.createElement('div');
+      div.className = 'msg ' + data.platform;
+      div.innerHTML = `<strong>[${data.platform}] ${data.user}:</strong> ${data.message}`;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    });
+  </script>
+</body>
+</html>
