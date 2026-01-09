@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
 // =============== TWITCH ==================
 const twitchClient = new tmi.Client({
   connection: { reconnect: true },
-  channels: ['karpecat'] // ← pon aquí el nombre de tu canal de Twitch
+  channels: ['yayo1302'] // ← pon aquí el nombre de tu canal de Twitch
 });
 
 twitchClient.connect().then(() => {
@@ -43,7 +43,7 @@ twitchClient.on('message', (channel, tags, message, self) => {
 });
 
 // =============== TIKTOK ==================
-const tiktokUsername = 'karpecat'; // ← pon aquí tu usuario de TikTok
+const tiktokUsername = 'yayos1302'; // ← pon aquí tu usuario de TikTok
 
 let tiktok = new WebcastPushConnection(tiktokUsername);
 
